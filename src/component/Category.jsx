@@ -77,10 +77,7 @@ setProducts(response.data);
         }   
         else {
             console.log('item',item); 
-            /*newCart = products.cart.map(item => {
-                return item.id === id ? { ...item, item } : item;
-            });
-            */item.count++;
+            item.count++;
             item.total=item.Price*item.count;
             
             newCart = value.cart.map(item => {
@@ -91,10 +88,7 @@ setProducts(response.data);
         value.addCart(newCart);
         linkTo('/cart');
     
-    //var cartTotal=calculTotal();
-    //setProducts(() =>{return{storeProducts:newProducts,detailProduct,cart:newCart,cartTotal:cartTotal}});
-    //console.log(products.cart);
-
+   
       }
     
       return (

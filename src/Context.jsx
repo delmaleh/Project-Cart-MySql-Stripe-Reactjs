@@ -15,26 +15,9 @@ export const UserProvider = (props) => {
       };
     useEffect(() => {
         
-        const checkToken = async () => {
-            try {
-             
-             let response= await axios.get(`http://localhost:5000/users/protected/self`,{headers});
-             
-             response = await axios.get(`http://localhost:5000/users/${response.data.userId}`);
-             console.log(response.data[0]);
-             setUser(response.data[0]);
-             setConnect(true);
-             
-             //console.log('response',response);
-            }
-            catch (error) {
-             if (error.response.status==401) {
-              //console.log(error.response)
-                 
-             }
-            }
+        
 
-         }
+         
         checkToken();
         const tabProducts = localStorage.getItem(key);
         const storedProducts = JSON.parse(tabProducts);
@@ -46,7 +29,25 @@ export const UserProvider = (props) => {
         setConnect(true);
         
     }
-    
+    const checkToken = async () => {
+        try {
+         
+         let response= await axios.get(`http://localhost:5000/users/protected/self`,{headers});
+         
+         response = await axios.get(`http://localhost:5000/users/${response.data.userId}`);
+         console.log(response.data[0]);
+         setUser(response.data[0]);
+         setConnect(true);
+         
+         //console.log('response',response);
+        }
+        catch (error) {
+         if (error.response.status==401) {
+          //console.log(error.response)
+             
+         }
+        }
+    }
     const logoutHandler = () => {
         localStorage.clear();
         
@@ -124,6 +125,7 @@ const civility = async(id)=>{
         <UserContext.Provider value={{  connect:connect,
                                         loginHandler:loginHandler,
                                         logoutHandler:logoutHandler,
+                                        checkToken:checkToken,
                                         user:user,
                                         cart:cart,
                                         cartTotal:cartTotal,

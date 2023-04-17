@@ -28,6 +28,7 @@ function Navbar() {
       
   useEffect(() => {
     fetchCategories();
+    value.checkToken();
   }, []);
   const handleLogout = () => {
     

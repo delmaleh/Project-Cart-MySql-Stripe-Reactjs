@@ -5,7 +5,7 @@ import { UserContext } from "../Context";
 import { useContext, useState,useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-
+import './Delivery.css';
 
 function Delivery() {
   const value = useContext(UserContext);
@@ -45,7 +45,7 @@ useEffect(() => {
         <div>  
           <Title name='your' title='cart'/>
           <div align="center" className="table-responsive">
-            <table className="table table-borderless" style={{width:'400px'}}>
+            <table className="table table-borderless" style={{width:'500px'}}>
               <tbody>
                 <tr>
                   <td colSpan={3} className="text-center">
@@ -63,15 +63,18 @@ useEffect(() => {
                     {address.Phone}
                   </td>
                   <td className="w-25 text-end">
-                    <Link to="/address">Change Address</Link>
-                  </td>
+          <div className="d-flex justify-content-end">
+            <Link to="/address" className="button-link">Change Address</Link>
+          </div>
+        </td>
                 </tr>
                 <tr>
                   <td></td>
                   <td></td>
                   <td className="text-end">
-                  <Link to="/payment">Order Payment</Link>
-                    
+                  <div className="d-flex justify-content-end">
+                  <Link to="/payment" className="button-link">Order Payment</Link>
+                  </div>  
                   </td>
                 </tr>
               </tbody>

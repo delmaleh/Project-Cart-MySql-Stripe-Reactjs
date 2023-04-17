@@ -86,7 +86,7 @@ import { Link } from "react-router-dom";
         <CardElement options={{hidePostalCode:true}}/>
         {alert.show && <div className="alert">{alert.text}</div>}
         <div align="right">
-           <p>       <button className="btn btn-primary" disabled={success}>Pay</button><Link to="/"><button className="btn btn-secondary" onClick={initCart}>close</button></Link></p>
+           <p>       <button className="button-link" disabled={success}>Pay</button><Link to="/"><button className="button-link" onClick={initCart}>close</button></Link></p>
           </div>
 
         </form>
